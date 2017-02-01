@@ -45,11 +45,10 @@
  * @ingroup themeable
  */
 #}
-<div class="layout-container">
 
-  <header role="banner">
-    {{ page.header }}
-  </header>
+{% include directory ~ '/partials/header.html.twig' %}
+
+<div class="container">
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
@@ -59,18 +58,11 @@
         
     </div>{# /.layout-content #}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar" role="complementary">
+    {% if page.sidebar %}
+      <aside class="layout-sidebar-first" role="complementary">
         {{ page.sidebar }}
       </aside>
     {% endif %}
-
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
-
   </main>
 
   {% if page.footer %}
@@ -79,4 +71,4 @@
     </footer>
   {% endif %}
 
-</div>{# /.layout-container #}
+</div>{# /.container #}
